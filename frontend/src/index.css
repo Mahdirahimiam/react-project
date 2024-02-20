@@ -1,0 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-align: right;
+}
+body{
+  direction: rtl;
+}
+.MuiOutlinedInput-notchedOutline{
+  border: none !important;
+}
+.MuiListItem-root{
+  width: auto!important;
+}
