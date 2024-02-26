@@ -1,11 +1,24 @@
+
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   text-align: right;
 }
+@font-face {
+  font-family: 'CustomFontName';
+  src: url('../public/Fonts/iranyekan-medium.woff2') format('woff2'),
+  
+  url('../public/Fonts/iranyekan-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body{
   direction: rtl;
+  font-family: 'CustomFontName', sans-serif;
+    background-color: #e92020 !important;
 }
 .MuiOutlinedInput-notchedOutline{
   border: none !important;
