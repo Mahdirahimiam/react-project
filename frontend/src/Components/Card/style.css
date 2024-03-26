@@ -1,0 +1,6 @@
+.heart{
+    visibility: hidden;
+}
+.card:hover+.heart{
+    visibility: visible !important;
+}

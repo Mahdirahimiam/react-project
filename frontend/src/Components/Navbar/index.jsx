@@ -8,9 +8,10 @@ import 'boxicons'
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Icon, List, ListItem, ListItemIcon, ListItemText, Stack, TextField } from '@mui/material';
+import { Badge, Icon, List, ListItem, ListItemIcon, ListItemText, Stack, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import { Link } from 'react-router-dom';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -30,7 +31,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   width: '100%',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create('width'),
     [theme.breakpoints.up('sm')]: {
@@ -58,49 +58,48 @@ const CustomTextField = styled(TextField)({
 export default function SearchAppBar() {
   return (
     <>
-    <Stack flexWrap={'wrap'} direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{ backgroundColor: 'inherit' }}>
-      <Box sx={{ padding: '20px 0' }}>
-        <img style={{ width: '80px', height: '118px' }} src="https://cdnfa.com/shikomod/dfb3/uploads/shiko-aoatar.png" alt="" />
-      </Box>
-      <Stack direction={'row'} alignItems={'center'} justifyContent={'start'} sx={{ borderRadius: '10px', padding: '10px 20px', height: '40px', width: '30vw', color: '#686e74', backgroundColor: '#f3f3f3', position: 'relative' }}>
-        <SearchIcon />
-        <Box width={'100%'}>
-          <CustomTextField
-            placeholder="جستوجوی محصول,دسته,برند..."
-          />
+      <Stack flexWrap={'wrap'} direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{ backgroundColor: 'inherit' }}>
+        <Box sx={{ padding: '20px 0' }}>
+          <img style={{ width: '80px', height: '118px' }} src="https://cdnfa.com/shikomod/dfb3/uploads/shiko-aoatar.png" alt="" />
         </Box>
-      </Stack>
-      <Stack direction={'row'} sx={{ flexWrap: 'nowrap', padding: '20px 0' }} >
-        <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
-          <PermIdentityIcon sx={{ borderRight: '2px solid #686e74', width: '40px', height: '40px', padding: '0 5px' }} />
-          <Typography sx={{ padding: '0 0 0 15px' }} variant="body1">ورود/ثبت نام</Typography>
+        <Stack direction={'row'} alignItems={'center'} justifyContent={'start'} sx={{ borderRadius: '10px', padding: '10px 20px', height: '40px', width: '30vw', color: '#686e74', backgroundColor: '#f3f3f3', position: 'relative' }}>
+          <SearchIcon />
+          <Box width={'100%'}>
+            <CustomTextField
+              placeholder="جستوجوی محصول,دسته,برند..."
+            />
+          </Box>
         </Stack>
-        <Stack alignItems={'center'} justifyContent={'center'} sx={{ position: 'relative', borderRight: '2px solid #686e74', padding: '0 20px', width: '40px', height: '40px' }}>
-          <box-icon name='basket'></box-icon>
-          <Stack alignItems={'center'} justifyContent={'center'} style={{ position: 'absolute', top: '-2px', right: '2px', backgroundColor: 'green', borderRadius: '50%', height: '20px', width: '20px', textAlign: 'center', color: '#fff' }}>2</Stack>
+        <Stack direction={'row'} sx={{ flexWrap: 'nowrap', padding: '20px 0' }} >
+          <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
+            <PermIdentityIcon sx={{ borderRight: '2px solid #686e74', width: '40px', height: '40px', padding: '0 5px' }} />
+            <Typography sx={{ padding: '0 0 0 15px' }} variant="body1">ورود/ثبت نام</Typography>
+          </Stack>
+          <Badge badgeContent={4} color="success">
+            <box-icon  name='basket'></box-icon>
+          </Badge>
         </Stack>
       </Stack>
-    </Stack>
-          <List sx={{display:'flex',alignItems:'center',justifyContent:'start',flexWrap:'nowrap'}}>
-          <ListItem>
-            <ListItemText>کیف</ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>کفش</ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>پوشاک</ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <box-icon type='solid' name='book-alt'></box-icon>
-            </ListItemIcon>
-            <ListItemText>مجله تخصصی کیف و کفش</ListItemText>
-          </ListItem>
-          <ListItem>
-            <ListItemText>حراج</ListItemText>
-          </ListItem>
-        </List>
-        </>
+      <List sx={{ display: 'flex', alignItems: 'center', justifyContent: 'start', flexWrap: 'nowrap' }}>
+        <ListItem>
+          <ListItemText><Link style={{ color: '#333' }} to={'ksmme'}>کیف</Link></ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText>کفش</ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText>پوشاک</ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemIcon>
+            <box-icon type='solid' name='book-alt'></box-icon>
+          </ListItemIcon>
+          <ListItemText>مجله تخصصی کیف و کفش</ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText>حراج</ListItemText>
+        </ListItem>
+      </List>
+    </>
   );
 }
