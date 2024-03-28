@@ -10,14 +10,16 @@ import Contact from './Pages/Contact'
 import Demo from './Pages/Demo'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
+import ProductDetails from './Pages/ProductDetails'
+import NotFound from "./Pages/NotFound";
 import Formik from './Components/Formik/Formik'
 import NewFormik from './Components/Formik/NewFormik'
-import { Grid, Stack } from '@mui/material'
+import { Badge, Box, Grid, IconButton, Stack, Typography } from '@mui/material'
 import Slider from './Components/Slider'
 export default function App() {
   return (
     <>
-      <Grid container spacing={2} justifyContent={'center'}>
+      <Grid container justifyContent={'center'} position={'relative'}>
         <Grid item xs={12} md={10}>
           <Navbar />
           <Routes>
@@ -29,7 +31,17 @@ export default function App() {
             <Route path='/integration' element={<Integration />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/request-demo' element={<Demo />} />
+            <Route path='/product-details/:slug' element={<ProductDetails />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
+          <Stack className='telephone' direction={'row'} alignItems={'center'} justifyContent={'center'} position={'fixed'} right={'3%'} zIndex={100} bottom={'5%'}>
+            <Stack alignItems={'center'} justifyContent={'center'} bgcolor={'#dc3545'} borderRadius={'50%'} padding={'5px'}>
+              <box-icon name='phone' flip='horizontal' color='#fff' size='lg'></box-icon>
+            </Stack>
+            <Typography marginRight={'-5px'} fontSize={'1.2em'} color={'#ffffff'} padding={'2px 10px'} borderRadius={'20px 0 0 20px'} bgcolor={'#dc3545'}>
+              تماس با ما
+            </Typography>
+          </Stack>
           <Footer />
         </Grid>
       </Grid>

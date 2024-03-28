@@ -4,7 +4,7 @@ const FetchApi = async(url, option = {}) => {
         const data = await res.json();
         return data;
     } catch (err) {
-        alert(err)
+        console.log(err);
     }
 }
 export default FetchApi

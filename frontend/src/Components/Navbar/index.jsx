@@ -12,6 +12,7 @@ import { Badge, Icon, List, ListItem, ListItemIcon, ListItemText, Stack, TextFie
 import SearchIcon from '@mui/icons-material/Search';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { Link } from 'react-router-dom';
+  import ResponsiveNavbar from './ResponsiveNavbar'
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -98,6 +99,9 @@ export default function SearchAppBar() {
         </ListItem>
         <ListItem>
           <ListItemText>حراج</ListItemText>
+        </ListItem>
+        <ListItem>
+          <ResponsiveNavbar/>
         </ListItem>
       </List>
     </>

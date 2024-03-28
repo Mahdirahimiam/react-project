@@ -27,6 +27,9 @@ export default function Home() {
         const sneakers = data?.data?.filter((e) => {
           return e?.attributes?.shoe?.data?.attributes?.Name === 'sneakers';
         });
+        const sandal = data?.data?.filter((e) => {
+          
+        })
         setLoafer(loafer);
         setSneakers(sneakers);
       } catch (error) {

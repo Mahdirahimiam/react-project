@@ -63,3 +63,10 @@ body{
 .discount{
   text-decoration: line-through !important;
 }
+.telephone {
+  transition: all 0.3s ease;
+}
+
+.telephone:hover {
+  transform: scale(1.09);
+}
