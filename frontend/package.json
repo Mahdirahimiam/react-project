@@ -19,7 +19,6 @@
     "dotenv": "^16.4.5",
     "formik": "^2.4.5",
     "react": "^18.2.0",
-    "react-18-image-lightbox": "^5.1.4",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.1",

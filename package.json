@@ -3,6 +3,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.10",
-    "formik": "^2.4.5"
+    "formik": "^2.4.5",
+    "react-image-lightbox": "^5.1.4"
   }
 }
