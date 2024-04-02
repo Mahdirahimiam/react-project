@@ -7,15 +7,9 @@ import React, { useState } from 'react';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // اضافه کردن استایل‌های مربوطه
 import { Box, Stack } from '@mui/material';
-const MyImageGallery = () => {
-  const images = [
-    'https://cdnfa.com/shikomod/dfb3/files/normal/5523629.jpg',
-    'https://lh3.googleusercontent.com/proxy/pajiuLIXVvbYvKQ3MNWTlUjLv-4ozTYiLlacCrEbA1sI7bvf8byo6y2RjdbMdBPKioA3cnDwsj0sJs630XZb1Teoo6LWO7e0GzybUhl93qMWuw5FAh-_7g',
-    'https://lh3.googleusercontent.com/proxy/pajiuLIXVvbYvKQ3MNWTlUjLv-4ozTYiLlacCrEbA1sI7bvf8byo6y2RjdbMdBPKioA3cnDwsj0sJs630XZb1Teoo6LWO7e0GzybUhl93qMWuw5FAh-_7g',
-    'https://lh3.googleusercontent.com/proxy/pajiuLIXVvbYvKQ3MNWTlUjLv-4ozTYiLlacCrEbA1sI7bvf8byo6y2RjdbMdBPKioA3cnDwsj0sJs630XZb1Teoo6LWO7e0GzybUhl93qMWuw5FAh-_7g',
-    'https://rukminim2.flixcart.com/image/450/500/xif0q/shoe/7/z/r/8-white-leaf-8-urbanbox-white-black-original-imagvgf4cuzs2hrw.jpeg?q=90&crop=false',
-  ];
-
+const MyImageGallery = ({urls}) => {
+  // console.log(urls);
+  const images = urls
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
   const items = images?.map((e, index) => (
@@ -30,7 +24,7 @@ const MyImageGallery = () => {
       <img
         key={index}
         src={e}
-        style={{ width: '100%', height: '100%', cursor: 'pointer' }}
+        style={{ width: '100%', height: '100%', cursor: 'pointer', objectFit:'cover'}}
         onClick={() => {
           setPhotoIndex(index);
           setIsOpen(true);
@@ -61,7 +55,7 @@ const MyImageGallery = () => {
           <img src={images[0]} onClick={() => {
             setIsOpen(true);
             setPhotoIndex(0);
-          }} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          }} style={{ width: '100%', height: '100%', objectFit: 'cover',cursor:'pointer'}} />
         </div>
         <Swiper
           style={{ padding: '5px', width: '100%', height: '20%' }}

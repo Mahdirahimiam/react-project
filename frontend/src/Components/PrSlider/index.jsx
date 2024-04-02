@@ -8,7 +8,7 @@ import { Pagination } from 'swiper/modules';
 export default function prSlider({ products }) {
   const items = products?.map((e, index) => (
     <SwiperSlide key={index}>
-      <Card discount={e?.attributes?.Discount} discountPrice={e?.attributes?.DiscountPrice} isOff={e?.attributes?.IsOff} is100={true} title={e?.attributes.Name} image={e?.attributes?.Imgs?.data[0]?.attributes?.url} price={e.attributes?.Price}/>
+      <Card discount={e?.attributes?.Discount} discountPrice={e?.attributes?.DiscountPrice} isOff={e?.attributes?.IsOff} is100={true} title={e?.attributes.Name} image={e?.attributes?.Imgs?.data[0]?.attributes?.url} price={e.attributes?.Price} id={e?.id}/>
 
     </SwiperSlide>
   ))

@@ -5,11 +5,21 @@ import Typography from '@mui/material/Typography';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Box, Stack } from '@mui/material';
 import './style.css'
-export default function RecipeReviewCard({ isOff=false, image, title, discountPrice, price, discount,is100 }) {
+import { Link, Navigate } from 'react-router-dom';
+export default function RecipeReviewCard({ isOff = false, image, title, discountPrice, price, discount, is100, id }) {
     const [showIcon, setShowIcon] = React.useState(false);
     return (
-        <Box width={is100?'100%':'20%'} height={is100?'100%':'60vh'} sx={{ overflow: 'hidden', borderRadius: '20px', backgroundColor: '#fff',margin:'5px 0' }}>
-            <Box height={'70%'} display={'flex'} alignItems={'center'} justifyContent={'center'} position={'relative'} onMouseEnter={() => setShowIcon(true)} onMouseLeave={() => setShowIcon(false)}>
+        <Box width={is100 ? '100%' : '20%'} height={is100 ? '100%' : '60vh'} sx={{ overflow: 'hidden', borderRadius: '20px', backgroundColor: '#fff', margin: '5px 0' }}>
+            <Link
+                to={'/product-details/' + id}
+                style={{
+                    height: '70%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'relative'
+                }}
+                onMouseEnter={() => setShowIcon(true)} onMouseLeave={() => setShowIcon(false)}>
                 <Box width={'100%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'} position={'absolute'} top={0}>
                     <Box visibility={showIcon ? 'visible' : 'hidden'}>
                         <IconButton aria-label="settings">
@@ -25,8 +35,10 @@ export default function RecipeReviewCard({ isOff=false, image, title, discountPr
                     </Box>
                 </Box>
                 <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={process.env.REACT_APP_BASE_URL + image} alt="product image" />
-            </Box>
-            <Stack overflow={'hidden'} height={'30%'} width={'100%'} direction={'column'} justifyContent={'space-between'} alignItems={'center'} gap={'.5vw'} padding={'1vw'}>
+            </Link>
+            <Link
+                to={'/product-details/' + id}
+                style={{ display: 'flex', overflow: 'hidden', height: '30%', width: '100%', flexDirection:'column', justifyContent: 'space-between', alignItems: 'center', gap: '0.5vw', padding: '1vw' }}>
                 <Typography height={'40%'}>{title}</Typography>
                 <Box height={'1px'} width={'90%'} sx={{ backgroundColor: 'var(--tr)' }}></Box>
                 <Stack height={'40%'} direction={'column'} alignItems={'center'} justifyContent={'center'}>
@@ -38,7 +50,7 @@ export default function RecipeReviewCard({ isOff=false, image, title, discountPr
                         {price} تومان
                     </Typography>
                 </Stack>
-            </Stack>
+            </Link>
         </Box>
     );
 }

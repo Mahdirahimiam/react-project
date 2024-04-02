@@ -23,7 +23,7 @@ export default function App() {
         <Grid item xs={12} md={10}>
           <Navbar />
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='' element={<Home />} />
             <Route path='/about-us' element={<About />} />
             <Route path='/why-wears' element={<WhyWears />} />
             <Route path='/solutions' element={<Solutions />} />

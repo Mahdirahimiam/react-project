@@ -60,9 +60,9 @@ export default function SearchAppBar() {
   return (
     <>
       <Stack flexWrap={'wrap'} direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{ backgroundColor: 'inherit' }}>
-        <Box sx={{ padding: '20px 0' }}>
+        <Link to={'/'} sx={{ padding: '20px 0' }}>
           <img style={{ width: '80px', height: '118px' }} src="https://cdnfa.com/shikomod/dfb3/uploads/shiko-aoatar.png" alt="" />
-        </Box>
+        </Link>
         <Stack direction={'row'} alignItems={'center'} justifyContent={'start'} sx={{ borderRadius: '10px', padding: '10px 20px', height: '40px', width: '30vw', color: '#686e74', backgroundColor: '#f3f3f3', position: 'relative' }}>
           <SearchIcon />
           <Box width={'100%'}>
@@ -76,7 +76,8 @@ export default function SearchAppBar() {
             <PermIdentityIcon sx={{ borderRight: '2px solid #686e74', width: '40px', height: '40px', padding: '0 5px' }} />
             <Typography sx={{ padding: '0 0 0 15px' }} variant="body1">ورود/ثبت نام</Typography>
           </Stack>
-          <Badge badgeContent={4} color="success">
+          <Box sx={{borderRight:'2px solid #686e74',padding:'0 5px'}}></Box>
+          <Badge sx={{ display:'flex',alignItems:'center',justifyContent:'center'}} badgeContent={4} color="success">
             <box-icon  name='basket'></box-icon>
           </Badge>
         </Stack>

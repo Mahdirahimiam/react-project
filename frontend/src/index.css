@@ -4,8 +4,11 @@
   margin: 0;
   box-sizing: border-box;
   text-align: right;
-  /* text-decoration: none !important; */
   list-style: none !important;
+}
+a,button{
+  text-decoration: none !important;
+  color: inherit !important;
 }
 :root {
   --tr:#dadada;
