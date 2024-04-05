@@ -23,7 +23,7 @@ export default function Slider() {
   return (
     <>
 <Swiper
-  style={{borderRadius:'20px'}}
+  style={{borderRadius:'20px',margin:'20px 0'}}
   spaceBetween={30}
   modules={[Autoplay, Pagination, Navigation]}
   autoplay={{

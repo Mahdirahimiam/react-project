@@ -19,9 +19,13 @@ import Slider from './Components/Slider'
 export default function App() {
   return (
     <>
-      <Grid container justifyContent={'center'} position={'relative'}>
+      <Grid bgcolor={'#fff'} container justifyContent={'center'} position={'relative'}>
         <Grid item xs={12} md={10}>
           <Navbar />
+        </Grid>
+      </Grid>
+      <Grid container justifyContent={'center'} position={'relative'}>
+        <Grid item xs={12} md={10}>
           <Routes>
             <Route path='' element={<Home />} />
             <Route path='/about-us' element={<About />} />
@@ -42,6 +46,10 @@ export default function App() {
               تماس با ما
             </Typography>
           </Stack>
+        </Grid>
+      </Grid>
+      <Grid bgcolor={'#fff'} container justifyContent={'center'} position={'relative'}>
+        <Grid item xs={12} md={10}>
           <Footer />
         </Grid>
       </Grid>

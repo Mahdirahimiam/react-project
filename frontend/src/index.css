@@ -13,6 +13,7 @@ a,button{
 :root {
   --tr:#dadada;
   --fontColor:#565959;
+  --font1Color:#606060
 }
 @font-face {
   font-family: 'CustomFontName';
@@ -28,7 +29,7 @@ a,button{
 
 body{
   direction: rtl;
-  font-family: 'CustomFontName', sans-serif;
+  font-family: 'CustomFontName',Arial !important;
   background-color: #f5f5f5 !important;
 }
 .MuiOutlinedInput-notchedOutline{
