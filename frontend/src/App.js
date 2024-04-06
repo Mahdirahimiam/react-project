@@ -52,6 +52,14 @@ export default function App() {
         <Grid item xs={12} md={10}>
           <Footer />
         </Grid>
+        <Stack direction={'row'} alignItems={'center'} justifyContent={'space-between'} bgcolor={'#f0f0f1'} border={'1px #ddd solid'} color={'#686e74'} padding={'10px 0'} width={'100%'}>
+          <Typography px={4}>
+            استفاده از مطالب فروشگاه اینترنتی شیکو فقط با ذکر منبع بلامانع است. کليه حقوق اين سايت محفوظ می‌باشد
+          </Typography>
+          <Typography px={4}>
+            فروشگاه ساخته شده توسط مهدی رحیمی
+          </Typography>
+        </Stack>
       </Grid>
     </>
 
