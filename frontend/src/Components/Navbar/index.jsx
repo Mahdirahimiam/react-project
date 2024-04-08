@@ -12,7 +12,8 @@ import { Badge, Icon, List, ListItem, ListItemIcon, ListItemText, Stack, TextFie
 import SearchIcon from '@mui/icons-material/Search';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { Link } from 'react-router-dom';
-  import ResponsiveNavbar from './ResponsiveNavbar'
+import ResponsiveNavbar from './ResponsiveNavbar'
+import { useState } from 'react';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -56,7 +57,13 @@ const CustomTextField = styled(TextField)({
     border: 'none',
   },
 });
+
 export default function SearchAppBar() {
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow(!show);
+  };
   return (
     <>
       <Stack flexWrap={'wrap'} direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{ backgroundColor: 'inherit' }}>
@@ -71,14 +78,28 @@ export default function SearchAppBar() {
             />
           </Box>
         </Stack>
-        <Stack direction={'row'} sx={{ flexWrap: 'nowrap', padding: '20px 0' }} >
-          <Stack direction={'row'} alignItems={'center'} justifyContent={'center'}>
+        <Stack direction={'row'} sx={{ flexWrap: 'nowrap', padding: '20px 0' }} position={'relative'}>
+          <Stack sx={{ cursor: 'pointer' }} direction={'row'} alignItems={'center'} justifyContent={'center'} onClick={() => { handleShow() }}>
             <PermIdentityIcon sx={{ borderRight: '2px solid #686e74', width: '40px', height: '40px', padding: '0 5px' }} />
             <Typography sx={{ padding: '0 0 0 15px' }} variant="body1">ورود/ثبت نام</Typography>
+            <Stack visibility={show ? 'visible' : 'hidden'} fontSize={'10px'} boxShadow={'0 0 5px 0 #686e74'} borderRadius={'10px'} width={'200px'} bgcolor={'#fff'} position={'absolute'} top={'80px'} left={0} zIndex={50}>
+              <Stack className='login-item' padding={'15px 15px 10px 15px'} direction={'row'} justifyContent={'start'} alignItems={'center'}>
+                <box-icon name='log-in'></box-icon>
+                <Typography>ورود</Typography>
+              </Stack>
+              <Stack className='login-item' padding={'10px 15px 10px 15px'} direction={'row'} justifyContent={'start'} alignItems={'center'}>
+                <box-icon name='user-plus'></box-icon>
+                <Typography>ثبت نام</Typography>
+              </Stack>
+              <Stack className='login-item' padding={'10px 15px 15px 15px'} direction={'row'} justifyContent={'start'} alignItems={'center'}>
+                <box-icon type='solid' name='cart-alt'></box-icon>
+                <Typography>پیگیری سفارش</Typography>
+              </Stack>
+            </Stack>
           </Stack>
-          <Box sx={{borderRight:'2px solid #686e74',padding:'0 5px'}}></Box>
-          <Badge sx={{ display:'flex',alignItems:'center',justifyContent:'center'}} badgeContent={4} color="success">
-            <box-icon  name='basket'></box-icon>
+          <Box sx={{ borderRight: '2px solid #686e74', padding: '0 5px' }}></Box>
+          <Badge sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} badgeContent={4} color="success">
+            <box-icon name='basket'></box-icon>
           </Badge>
         </Stack>
       </Stack>
@@ -102,7 +123,7 @@ export default function SearchAppBar() {
           <ListItemText>حراج</ListItemText>
         </ListItem>
         <ListItem>
-          <ResponsiveNavbar/>
+          <ResponsiveNavbar />
         </ListItem>
       </List>
     </>

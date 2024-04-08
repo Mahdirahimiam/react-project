@@ -33,7 +33,7 @@ export default function Index() {
 
    return (
     product && (
-      <Stack spacing={1} direction={'row'}>
+      <Stack spacing={1} direction={'row'} paddingTop={'30px'}>
         {/* //product image */}
         <Box height={'80vh'} width={'30%'}>
           <ImageLightBox urls={urls} />

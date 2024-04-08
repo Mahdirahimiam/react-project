@@ -22,7 +22,7 @@ export default function RecipeReviewCard({ isOff = false, image, title, discount
                 onMouseEnter={() => setShowIcon(true)} onMouseLeave={() => setShowIcon(false)}>
                 <Box width={'100%'} display={'flex'} alignItems={'center'} justifyContent={'space-between'} position={'absolute'} top={0}>
                     <Box visibility={showIcon ? 'visible' : 'hidden'}>
-                        <IconButton aria-label="settings">
+                        <IconButton aria-label="settings" onClick={()=>{}}>
                             <Avatar sx={{ bgcolor: '#efefef' }} aria-label="recipe">
                                 <FavoriteBorderIcon style={{ color: 'red' }} />
                             </Avatar>

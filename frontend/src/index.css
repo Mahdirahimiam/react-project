@@ -74,3 +74,10 @@ body{
 .telephone:hover {
   transform: scale(1.09);
 }
+.login-item {
+  transition: background-color 0.3s;
+}
+
+.login-item:hover {
+  background-color: #f5f5f5;
+}
