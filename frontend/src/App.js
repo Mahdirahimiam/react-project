@@ -16,6 +16,7 @@ import Formik from './Components/Formik/Formik'
 import NewFormik from './Components/Formik/NewFormik'
 import { Badge, Box, Grid, IconButton, Stack, Typography } from '@mui/material'
 import Slider from './Components/Slider'
+import LoginRegister from './Pages/LoginRegister'
 export default function App() {
   return (
     <>
@@ -33,6 +34,7 @@ export default function App() {
             <Route path='/solutions' element={<Solutions />} />
             <Route path='/our-clients' element={<Clients />} />
             <Route path='/integration' element={<Integration />} />
+            <Route path='/login-register' element={<LoginRegister />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/request-demo' element={<Demo />} />
             <Route path='/product-details/:slug' element={<ProductDetails />} />

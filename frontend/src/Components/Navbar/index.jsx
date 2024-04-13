@@ -59,11 +59,14 @@ const CustomTextField = styled(TextField)({
 });
 
 export default function SearchAppBar() {
-  const [show, setShow] = useState(false);
+  let [show, setShow] = useState(false);
+  window.addEventListener('click', (e) => {
+    if (!e.target.closest('.login-nav')) {
+      setShow(false);
+    }
+  });
+  
 
-  const handleShow = () => {
-    setShow(!show);
-  };
   return (
     <>
       <Stack flexWrap={'wrap'} direction={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{ backgroundColor: 'inherit' }}>
@@ -79,10 +82,10 @@ export default function SearchAppBar() {
           </Box>
         </Stack>
         <Stack direction={'row'} sx={{ flexWrap: 'nowrap', padding: '20px 0' }} position={'relative'}>
-          <Stack sx={{ cursor: 'pointer' }} direction={'row'} alignItems={'center'} justifyContent={'center'} onClick={() => { handleShow() }}>
+          <Stack id='login-nav' sx={{ cursor: 'pointer' }} direction={'row'} alignItems={'center'} justifyContent={'center'} onClick={() => { setShow(!show) }}>
             <PermIdentityIcon sx={{ borderRight: '2px solid #686e74', width: '40px', height: '40px', padding: '0 5px' }} />
             <Typography sx={{ padding: '0 0 0 15px' }} variant="body1">ورود/ثبت نام</Typography>
-            <Stack visibility={show ? 'visible' : 'hidden'} fontSize={'10px'} boxShadow={'0 0 5px 0 #686e74'} borderRadius={'10px'} width={'200px'} bgcolor={'#fff'} position={'absolute'} top={'80px'} left={0} zIndex={50}>
+            <Stack className='login-nav' visibility={show ? 'visible' : 'hidden'} fontSize={'10px'} boxShadow={'0 0 5px 0 #686e74'} borderRadius={'10px'} width={'200px'} bgcolor={'#fff'} position={'absolute'} top={'80px'} left={0} zIndex={50}>
               <Stack className='login-item' padding={'15px 15px 10px 15px'} direction={'row'} justifyContent={'start'} alignItems={'center'}>
                 <box-icon name='log-in'></box-icon>
                 <Typography>ورود</Typography>
