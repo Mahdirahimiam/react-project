@@ -60,11 +60,11 @@ const CustomTextField = styled(TextField)({
 
 export default function SearchAppBar() {
   let [show, setShow] = useState(false);
-  window.addEventListener('click', (e) => {
-    if (!e.target.closest('.login-nav')) {
-      setShow(false);
-    }
-  });
+  // window.addEventListener('click', (e) => {
+  //   if (!e.target.closest('.login-nav')) {
+  //     setShow(false);
+  //   }
+  // });
   
 
   return (
@@ -90,10 +90,10 @@ export default function SearchAppBar() {
                 <box-icon name='log-in'></box-icon>
                 <Typography>ورود</Typography>
               </Stack>
-              <Stack className='login-item' padding={'10px 15px 10px 15px'} direction={'row'} justifyContent={'start'} alignItems={'center'}>
+              <link href='/login-register' className='login-item' padding={'10px 15px 10px 15px'} direction={'row'} justifyContent={'start'} alignItems={'center'}>
                 <box-icon name='user-plus'></box-icon>
                 <Typography>ثبت نام</Typography>
-              </Stack>
+              </link>
               <Stack className='login-item' padding={'10px 15px 15px 15px'} direction={'row'} justifyContent={'start'} alignItems={'center'}>
                 <box-icon type='solid' name='cart-alt'></box-icon>
                 <Typography>پیگیری سفارش</Typography>

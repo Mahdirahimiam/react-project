@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shoes",
+  "info": {
+    "singularName": "shoe",
+    "pluralName": "shoes",
+    "displayName": "Shoe",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "all_star": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::all-star.all-star",
+      "inversedBy": "shoe"
+    }
+  }
+}

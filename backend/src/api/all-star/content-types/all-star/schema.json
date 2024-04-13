@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "all_stars",
+  "info": {
+    "singularName": "all-star",
+    "pluralName": "all-stars",
+    "displayName": "All-star"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "shoe": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shoe.shoe",
+      "mappedBy": "all_star"
+    }
+  }
+}
