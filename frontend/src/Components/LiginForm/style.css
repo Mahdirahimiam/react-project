@@ -90,12 +90,11 @@ button{
 
 .captcha{
     background-color: #d3d3d3;
-    padding: 13px;
+    padding: 8px;
     user-select: none;
-    background: url("../../../public/cap.jpg");
+    background: url("./img/cap.jpg");
     font-size: 1.5rem;
     color: #696969;
-    height: 100% !important;
 }
 .captcha_input{
     border-top-right-radius: 0;

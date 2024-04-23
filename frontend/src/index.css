@@ -32,9 +32,6 @@ body{
   font-family: 'CustomFontName',Arial !important;
   background-color: #f5f5f5 !important;
 }
-.MuiOutlinedInput-notchedOutline{
-  border: none !important;
-}
 .MuiListItem-root{
   width: auto!important;
 }
