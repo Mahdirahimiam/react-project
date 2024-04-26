@@ -3,13 +3,13 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, useMediaQuery } from '@mui/material';
 import './style.css'
 import { Link, Navigate } from 'react-router-dom';
 export default function RecipeReviewCard({ isOff = false, image, title, discountPrice, price, discount, is100, id }) {
     const [showIcon, setShowIcon] = React.useState(false);
     return (
-        <Box border={'1px #dadada solid'} width={is100 ? '100%' : '20%'} height={is100 ? '100%' : '60vh'} sx={{ overflow: 'hidden', borderRadius: '20px', backgroundColor: '#fff', margin: '5px 0' }}>
+        <Box border={'1px #dadada solid'} width={is100 ? '100%' : '20٪'} height={is100 ? '100%' : '50vh'} sx={{ overflow: 'hidden', borderRadius: '20px', backgroundColor: '#fff', margin: '5px 0' }}>
             <Link
                 to={'/product-details/' + id}
                 style={{

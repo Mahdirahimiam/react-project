@@ -13,19 +13,20 @@ export default function SelectBox({ title, list }) {
         return <MenuItem key={Index} value={e}>{e}</MenuItem>;
     });
     return (
-        <Box sx={{ minWidth: 120 }}>
-            <FormControl sx={{width:'100%',border:'1px solid #dadada',borderRadius:'10px',height:'35px'}}>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={age}
-                    label="Age"
-                    onChange={handleChange}
-                >
-                <InputLabel id="demo-simple-select-label">{title}</InputLabel>
-                {items}
-                </Select>
-            </FormControl>
-        </Box>
+        <Box sx={{ minWidth: 120}} style={{direction:'rtl !important'}}>
+        <FormControl fullWidth style={{direction:'rtl !important'}}>
+          <InputLabel id="demo-simple-select-label" style={{direction:'rtl !important'}}>Age</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={age}
+            label="Age"
+            onChange={handleChange}
+            style={{direction:'rtl !important'}}
+          >
+            {items}
+          </Select>
+        </FormControl>
+      </Box>
     );
 }

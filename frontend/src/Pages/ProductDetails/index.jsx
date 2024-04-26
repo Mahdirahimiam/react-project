@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Stack, Box, Typography, Button } from '@mui/material';
+import { Stack, Box, Typography, Button, FormControl, FormLabel, Select, MenuItem } from '@mui/material';
 import SelectBox from '../../Components/SelectBox';
 import { useParams } from 'react-router-dom';
 import ImageLightBox from '../../Components/ImageLightBox'
 import FetchApi from '../../Utils/FetchApi'
 import Star from '../../Components/Star'
+import { DNA } from 'react-loader-spinner';
 export default function Index() {
   const params = useParams();
   const [product, setProduct] = useState()
@@ -18,7 +19,7 @@ export default function Index() {
       try {
         const data = await FetchApi(`${process.env.REACT_APP_BASE_API}/products/${params.slug}?populate=*`);
         if (data) {
-          setProduct(data.data.attributes);
+          // setProduct(data.data.attributes);
         }
       } catch (error) {
         console.log(error);
@@ -27,12 +28,21 @@ export default function Index() {
   }, [params.slug]);
 
 
-  
-  const colors = product?.Details.colors.replace('[','').replace(']','').split(',').map((e) => e.trim());
-  const sizes = product?.Details.size.replace('[','').replace(']','').split(',').map((e) => e.trim());
 
-   return (
-    product && (
+  const colors = product?.Details.colors.replace('[', '').replace(']', '').split(',').map((e) => e.trim());
+  const sizes = product?.Details.size.replace('[', '').replace(']', '').split(',').map((e) => e.trim());
+  const [size, setSize] = React.useState("");
+
+  const handleSize = (event) => {
+    setSize(event.target.value);
+  };
+  const [color, setColor] = React.useState("");
+
+  const handleColor = (event) => {
+    setColor(event.target.value);
+  };
+  return (
+    product ? (
       <Stack spacing={1} direction={'row'} paddingTop={'30px'}>
         {/* //product image */}
         <Box height={'80vh'} width={'30%'}>
@@ -62,26 +72,51 @@ export default function Index() {
           <Stack width={'90%'} direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
             <Typography>قیمت کالا</Typography>
             <Stack fontSize={'14px'} direction={'column'}>
-                <Box visibility={product?.Discount?'visible':'hidden'}>
-                  <span style={{ fontSize: '14px', color: '#fff', backgroundColor: 'red', textDecoration: 'line-through !important', borderRadius: '5px', padding: '0 3px' }}>{product?.Discount}%</span>
-                  <span className='discount' style={{ padding: '0 15px', fontSize: '14px', color: 'var(--fontColor)' }}>{product?.DiscountPrice}</span>
-                </Box>
+              <Box visibility={product?.Discount ? 'visible' : 'hidden'}>
+                <span style={{ fontSize: '14px', color: '#fff', backgroundColor: 'red', textDecoration: 'line-through !important', borderRadius: '5px', padding: '0 3px' }}>{product?.Discount}%</span>
+                <span className='discount' style={{ padding: '0 15px', fontSize: '14px', color: 'var(--fontColor)' }}>{product?.DiscountPrice}</span>
+              </Box>
               <Typography>{product?.Price} <span style={{ color: '#545353' }}>تومان</span></Typography>
             </Stack>
           </Stack>
           <Stack gap={1} width={'90%'} direction={'column'} justifyContent={'right'}>
-            <Typography width={'100%'}>رنگ</Typography>
-            <SelectBox title={'رنگ'} list={colors} />
+            <FormControl>
+              <FormLabel component="legend">رنگ</FormLabel>
+              <Select value={color} fullWidth onChange={handleColor} sx={{ fontSize: '.9rem' }}>
+                {colors &&
+                  colors.map((e) => (
+                    <MenuItem key={e} value={e}>{e}</MenuItem>
+                  ))
+                }
+              </Select>
+            </FormControl>
           </Stack>
           <Stack gap={1} width={'90%'} direction={'column'} justifyContent={'right'}>
-            <Typography width={'100%'}>سایز</Typography>
-            <SelectBox title={'سایز'} list={sizes} />
+            <FormControl>
+              <FormLabel component="legend">سایز</FormLabel>
+              <Select value={size} fullWidth onChange={handleSize} sx={{ fontSize: '.9rem' }}>
+                {sizes &&
+                  sizes.map((e) => (
+                    <MenuItem key={e} value={e}>{e}</MenuItem>
+                  ))
+                }
+              </Select>
+            </FormControl>
           </Stack>
           <Button variant='contained' sx={{ width: '90%', backgroundColor: '#fb3449', margin: '20px 0' }}>
             <Typography>افزودن به سبد خرید</Typography>
           </Button>
         </Stack>
       </Stack>
+    ):(
+      <DNA
+  visible={true}
+  height="300"
+  width="800"
+  ariaLabel="dna-loading"
+  wrapperStyle={{}}
+  wrapperClass="dna-wrapper"
+  />
     )
   );
 }

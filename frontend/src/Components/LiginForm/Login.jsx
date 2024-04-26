@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import { TextField, Button, Stack, Box, Typography, Checkbox, FormControlLabel, colors } from '@mui/material';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-
+import style from './style.css'
 const validationSchema = Yup.object().shape({
   email: Yup.string().email('ایمیل نا معتبر').required('ایمیل خود را وارد کنید'),
   password: Yup.string().required('پسورد خود را وارد کنید'),

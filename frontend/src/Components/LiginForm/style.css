@@ -92,7 +92,7 @@ button{
     background-color: #d3d3d3;
     padding: 8px;
     user-select: none;
-    background: url("./img/cap.jpg");
+    background: url("../../../public/cap.jpg");
     font-size: 1.5rem;
     color: #696969;
 }

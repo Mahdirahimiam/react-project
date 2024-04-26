@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bags",
+  "info": {
+    "singularName": "bag",
+    "pluralName": "bags",
+    "displayName": "Bag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    }
+  }
+}

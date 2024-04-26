@@ -12,49 +12,6 @@ import { Link } from 'react-router-dom';
 import ResponsiveNavbar from './ResponsiveNavbar'
 import { useState } from 'react';
 import Login from '../../Components/LiginForm/Login'
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-}));
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  width: '100%',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-const CustomTextField = styled(TextField)({
-  '& .MuiInputBase-root': {
-    border: 'none',
-  },
-});
 
 export default function SearchAppBar() {
   let [show, setShow] = useState(false);
@@ -64,11 +21,7 @@ export default function SearchAppBar() {
       setShow(false);
     }
   });
-  // window.addEventListener('click', (e) => {
-  //   if (!e.target.closest('.login-sec')) {
-  //     setShow(false);
-  //   }
-  // });
+
 
 
   return (
@@ -84,6 +37,9 @@ export default function SearchAppBar() {
         size='small'
           placeholder='جستجوی محصول,دسته,برند...'
           sx={{
+            "& focus":{
+              border:'none !important'
+            },
             // Root class for the input field
             "& .MuiOutlinedInput-root": {
               color: "#000",
@@ -94,7 +50,6 @@ export default function SearchAppBar() {
                 borderColor: "gray",
                 borderWidth: "0px",
                 borderRadius:'15px',
-                
               },
             },
             // Class for the label of the input field
@@ -140,22 +95,22 @@ export default function SearchAppBar() {
       </Stack>
       <List sx={{ display: 'flex', alignItems: 'center', justifyContent: 'start', flexWrap: 'nowrap' }}>
         <ListItem>
-          <ListItemText><Link style={{ color: '#333' }} to={'ksmme'}>کیف</Link></ListItemText>
+            <Link to={'/bag'}>کیف</Link>
         </ListItem>
         <ListItem>
-          <ListItemText>کفش</ListItemText>
+          <Link to={'/shoe'}>کفش</Link>
         </ListItem>
         <ListItem>
-          <ListItemText>پوشاک</ListItemText>
+          <Link to={'/wear'}>پوشاک</Link>
         </ListItem>
         <ListItem>
           <ListItemIcon>
             <box-icon type='solid' name='book-alt'></box-icon>
           </ListItemIcon>
-          <ListItemText>مجله تخصصی کیف و کفش</ListItemText>
+          <Link to={'web-log'}>مجله تخصصی کیف و کفش</Link>
         </ListItem>
         <ListItem>
-          <Link to={''}>حراج ویژه</Link>
+          <Link to={'/special-sale'}>حراج ویژه</Link>
         </ListItem>
         <ListItem>
           <ResponsiveNavbar />
