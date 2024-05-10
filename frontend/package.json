@@ -27,6 +27,7 @@
     "react-loader-spinner": "^6.1.6",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
+    "react-toastify": "^10.0.5",
     "styled": "^1.0.0",
     "styled-components": "^6.1.8",
     "swiper": "^11.0.7",

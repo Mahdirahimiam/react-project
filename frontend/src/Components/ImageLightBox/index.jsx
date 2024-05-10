@@ -1,17 +1,17 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Card from '../Card'
+import Card from '../Card';
 import 'swiper/css';
 import 'swiper/css/pagination';
-// import { Stack } from '@mui/material';
 import React, { useState } from 'react';
 import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // اضافه کردن استایل‌های مربوطه
+import 'react-image-lightbox/style.css';
 import { Box, Stack } from '@mui/material';
-const MyImageGallery = ({urls}) => {
-  // console.log(urls);
-  const images = urls
+
+const MyImageGallery = ({ urls }) => {
+  const images = urls;
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+
   const items = images?.map((e, index) => (
     <SwiperSlide key={index} style={{
       display: 'flex',
@@ -24,14 +24,16 @@ const MyImageGallery = ({urls}) => {
       <img
         key={index}
         src={e}
-        style={{ width: '100%', height: '100%', cursor: 'pointer', objectFit:'cover'}}
+        style={{ width: '100%', height: '100%', cursor: 'pointer', objectFit: 'cover' }}
         onClick={() => {
           setPhotoIndex(index);
           setIsOpen(true);
         }}
         alt={"Image " + index}
-      />    </SwiperSlide>
-  ))
+      />
+    </SwiperSlide>
+  ));
+
   return (
     <Box>
       <Box>
@@ -50,15 +52,15 @@ const MyImageGallery = ({urls}) => {
           />
         )}
       </Box>
-      <Stack style={{ display: 'flex', direction: 'column', justifyContent: 'center', alignItems: 'center', height: '75vh', width: '350px', overflow: 'hidden' }}>
-        <div style={{ height: '80%', overflow: 'hidden', borderRadius: "20px", width: '100%', marginBottom: '20px', }}>
+      <Stack style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '75vh', width: '100%', overflow: 'hidden' }}>
+        <div style={{ height: '80%', overflow: 'hidden', borderRadius: "20px", width: '100%', marginBottom: '20px' }}>
           <img src={images[0]} onClick={() => {
             setIsOpen(true);
             setPhotoIndex(0);
-          }} style={{ width: '100%', height: '100%', objectFit: 'cover',cursor:'pointer'}} />
+          }} style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }} />
         </div>
         <Swiper
-          style={{ padding: '5px', width: '100%', height: '20%' }}
+          style={{ padding: '5px', width: '100%', height: '17%' }}
           slidesPerView={1}
           spaceBetween={30}
           pagination={{
