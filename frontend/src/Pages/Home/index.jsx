@@ -20,7 +20,6 @@ export default function Home() {
       try {
         const data = await FetchApi(`${process.env.REACT_APP_BASE_API}/products?populate=*`);
         setProducts(data?.data);
-
         const loafer = data?.data?.filter((e) => {
           return e?.attributes?.shoe?.data?.attributes?.Name === 'loafer';
         });

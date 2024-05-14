@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Formik, Form } from "formik";
 import CustomInput from "./CustomInput";
 import { basicSchema } from "../schemas";
@@ -10,28 +10,30 @@ import Captcha from "./Captcha";
 import 'react-toastify/ReactToastify.css';
 import Toast from '../Toast';
 import { Navigate } from 'react-router-dom';
+import AuthContext from '../../Utils/authContext';
 
 export default function Forms() {
   const [state, setState] = useState("");
   const [cities, setCities] = useState([]);
   const [captcha, setCaptcha] = useState(Math.random().toString(36).slice(8));
   const [showElement, setShowElement] = useState(false);
-  const [toast,setToast] = useState({type:'info',message:''})
+  const [toast, setToast] = useState({ type: 'info', message: '',ran:Math.random() })
+  const handleToken = useContext(AuthContext)
   async function onSubmit(values, { setSubmitting, resetForm }) {
     if (
-      values.username.trim() === "" || values.fullname.trim() === "" || values.phone.trim() === "" || values.password.trim() === ""
+      values.username.trim() === ""  ||    values.fullname.trim() === ""  ||    values.phone.trim() === ""  ||    values.password.trim() === ""
     ) {
       setShowElement(true);
       return;
     }
     if (captcha !== values.captcha) {
-      setToast({type:'error',message:"کد امنیتی صحیح نمی باشد!"})
+      setToast({ type: 'error', message: "کد امنیتی صحیح نمی باشد!" })
       return;
     }
 
     try {
       setSubmitting(true);
-      const response = await fetch(process.env.REACT_APP_BASE_URL + "/api/users", {
+      fetch(process.env.REACT_APP_BASE_URL + "/api/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,30 +50,27 @@ export default function Forms() {
           address: values.address,
           role: ""
         }),
-      })
-      if (!response.ok) {
-        setToast({type:'error',message:"مشکلی در ثبت نام شما بوجود اده است!"})
-        throw new Error("Network response was not ok");
-
-      }
-      const data = await response.json();
-      if (data.id) {
-        setToast({type:'success',message:"ثبت نام با موفقیت انجام شد!"})
+      }).then(res=>{res.json()})
+      .then((data=>{
+        console.log(data)
+        setToast({ type: 'success', message: "ثبت نام با موفقیت انجام شد!" })
         resetForm();
-        Navigate('/')
-      } else {
-        setToast({type:'error',message:"مشکلی در ثبت نام شما بوجود اده است!"})
+        Navigate('/');
+      }))
       }
-    } catch (error) {
+    
+
+     
+    catch (error) {
       console.error("Error:", error);
-      setToast({type:'error',message:"مشکلی در ثبت نام شما وجود دارد.لطفا بعدا دوباره امتحان کنید!"})
+      setToast({ type: 'error', message: "مشکلی در ثبت نام شما وجود دارد. لطفا بعدا دوباره امتحان کنید!" })
     } finally {
       setSubmitting(false);
     }
   }
 
   return (<>
-  <Toast type={toast.type} message={toast.message}/>
+    <Toast type={toast.type} message={toast.message} ran={toast.ran}/>
     <div className="container">
       {showElement && (
         <div className="alert-shown">
@@ -91,7 +90,7 @@ export default function Forms() {
           password: "",
           confirmPassword: "",
           state: "",
-          cities: [], // Initialize cities as an empty array
+          cities: [],
           address: "",
           postalcode: "",
           captcha: "",

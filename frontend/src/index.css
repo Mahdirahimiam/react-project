@@ -78,3 +78,8 @@ body{
 .login-item:hover {
   background-color: #f5f5f5;
 }
+.image-search{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}

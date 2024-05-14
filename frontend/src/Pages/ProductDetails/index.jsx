@@ -21,16 +21,16 @@ export default function Index() {
       try {
         const data = await FetchApi(`${process.env.REACT_APP_BASE_API}/products/${slug}?populate=*`);
         if (data) {
-          setProduct(data.data.attributes);
-          const productColors = data.data.attributes?.Details.colors.replace('[', '').replace(']', '').split(',').map((e) => e.trim());
-          const productSizes = data.data.attributes?.Details.size.replace('[', '').replace(']', '').split(',').map((e) => e.trim());
+          setProduct(data?.data?.attributes);
+          const productColors = data?.data?.attributes?.Details?.colors?.replace('[', '').replace(']', '').split(',').map((e) => e.trim());
+          const productSizes = data?.data?.attributes?.Details?.size?.replace('[', '').replace(']', '').split(',').map((e) => e.trim());
           setColors(productColors || []);
           setSizes(productSizes || []);
           setSelectedColor(productColors[0] || '');
           setSelectedSize(productSizes[0] || '');
         }
       } catch (error) {
-        console.log(error);
+        console.log("data error ="+error);
       }
     }
     fetchData();
@@ -88,7 +88,7 @@ export default function Index() {
             </Stack>
           </Stack>
           <Stack gap={1} width={'90%'} direction={'column'} justifyContent={'right'}>
-            <FormControl>
+            <FormControl sx={{display:colors.length>0?'block':"none"}}>
               <FormLabel component="legend">رنگ</FormLabel>
               <Select value={selectedColor} fullWidth onChange={handleColorChange} sx={{ fontSize: '.9rem' }}>
                 {colors.map((e) => (
@@ -98,7 +98,7 @@ export default function Index() {
             </FormControl>
           </Stack>
           <Stack gap={1} width={'90%'} direction={'column'} justifyContent={'right'}>
-            <FormControl>
+            <FormControl sx={{display:sizes.length>0?"block":"none"}}>
               <FormLabel component="legend">سایز</FormLabel>
               <Select value={selectedSize} fullWidth onChange={handleSizeChange} sx={{ fontSize: '.9rem' }}>
                 {sizes.map((e) => (
