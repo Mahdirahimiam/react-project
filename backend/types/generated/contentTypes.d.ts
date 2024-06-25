@@ -303,155 +303,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiAllStarAllStar extends Schema.CollectionType {
-  collectionName: 'all_stars';
-  info: {
-    singularName: 'all-star';
-    pluralName: 'all-stars';
-    displayName: 'All-star';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    products: Attribute.Relation<'api::all-star.all-star', 'oneToMany', 'api::product.product'>;
-    shoe: Attribute.Relation<'api::all-star.all-star', 'oneToOne', 'api::shoe.shoe'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::all-star.all-star', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::all-star.all-star', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiBagBag extends Schema.CollectionType {
-  collectionName: 'bags';
-  info: {
-    singularName: 'bag';
-    pluralName: 'bags';
-    displayName: 'Bag';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    products: Attribute.Relation<'api::bag.bag', 'oneToMany', 'api::product.product'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::bag.bag', 'oneToOne', 'admin::user'> & Attribute.Private;
-    updatedBy: Attribute.Relation<'api::bag.bag', 'oneToOne', 'admin::user'> & Attribute.Private;
-  };
-}
-
-export interface ApiCategoryCategory extends Schema.CollectionType {
-  collectionName: 'categories';
-  info: {
-    singularName: 'category';
-    pluralName: 'categories';
-    displayName: 'Category';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    categories: Attribute.Relation<'api::category.category', 'oneToMany', 'api::shoe.shoe'>;
-    product: Attribute.Relation<'api::category.category', 'oneToOne', 'api::product.product'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::category.category', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::category.category', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProductProduct extends Schema.CollectionType {
-  collectionName: 'products';
-  info: {
-    singularName: 'product';
-    pluralName: 'products';
-    displayName: 'Product';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    Imgs: Attribute.Media;
-    Price: Attribute.Decimal;
-    Desc: Attribute.Text;
-    Rate: Attribute.Decimal;
-    Details: Attribute.JSON;
-    shoe: Attribute.Relation<'api::product.product', 'oneToOne', 'api::shoe.shoe'>;
-    Discount: Attribute.Integer;
-    DiscountPrice: Attribute.Integer;
-    IsOff: Attribute.Boolean;
-    Category: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::product.product', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::product.product', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiShoeShoe extends Schema.CollectionType {
-  collectionName: 'shoes';
-  info: {
-    singularName: 'shoe';
-    pluralName: 'shoes';
-    displayName: 'Shoe';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    products: Attribute.Relation<'api::shoe.shoe', 'oneToMany', 'api::product.product'>;
-    all_star: Attribute.Relation<'api::shoe.shoe', 'oneToOne', 'api::all-star.all-star'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::shoe.shoe', 'oneToOne', 'admin::user'> & Attribute.Private;
-    updatedBy: Attribute.Relation<'api::shoe.shoe', 'oneToOne', 'admin::user'> & Attribute.Private;
-  };
-}
-
-export interface ApiSliderSlider extends Schema.CollectionType {
-  collectionName: 'sliders';
-  info: {
-    singularName: 'slider';
-    pluralName: 'sliders';
-    displayName: 'Slider';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    slider: Attribute.String;
-    images: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::slider.slider', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::slider.slider', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -812,6 +663,179 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAllStarAllStar extends Schema.CollectionType {
+  collectionName: 'all_stars';
+  info: {
+    singularName: 'all-star';
+    pluralName: 'all-stars';
+    displayName: 'All-star';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    products: Attribute.Relation<'api::all-star.all-star', 'oneToMany', 'api::product.product'>;
+    shoe: Attribute.Relation<'api::all-star.all-star', 'oneToOne', 'api::shoe.shoe'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::all-star.all-star', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::all-star.all-star', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiArticleArticle extends Schema.CollectionType {
+  collectionName: 'articles';
+  info: {
+    singularName: 'article';
+    pluralName: 'articles';
+    displayName: 'Article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    Img: Attribute.Media;
+    article: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::article.article', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::article.article', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBagBag extends Schema.CollectionType {
+  collectionName: 'bags';
+  info: {
+    singularName: 'bag';
+    pluralName: 'bags';
+    displayName: 'Bag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    products: Attribute.Relation<'api::bag.bag', 'oneToMany', 'api::product.product'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::bag.bag', 'oneToOne', 'admin::user'> & Attribute.Private;
+    updatedBy: Attribute.Relation<'api::bag.bag', 'oneToOne', 'admin::user'> & Attribute.Private;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    categories: Attribute.Relation<'api::category.category', 'oneToMany', 'api::shoe.shoe'>;
+    product: Attribute.Relation<'api::category.category', 'oneToOne', 'api::product.product'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::category.category', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::category.category', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Imgs: Attribute.Media;
+    Price: Attribute.Decimal;
+    Desc: Attribute.Text;
+    Rate: Attribute.Decimal;
+    Details: Attribute.JSON;
+    shoe: Attribute.Relation<'api::product.product', 'oneToOne', 'api::shoe.shoe'>;
+    Discount: Attribute.Integer;
+    DiscountPrice: Attribute.Integer;
+    IsOff: Attribute.Boolean;
+    Category: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::product.product', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::product.product', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiShoeShoe extends Schema.CollectionType {
+  collectionName: 'shoes';
+  info: {
+    singularName: 'shoe';
+    pluralName: 'shoes';
+    displayName: 'Shoe';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    products: Attribute.Relation<'api::shoe.shoe', 'oneToMany', 'api::product.product'>;
+    all_star: Attribute.Relation<'api::shoe.shoe', 'oneToOne', 'api::all-star.all-star'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::shoe.shoe', 'oneToOne', 'admin::user'> & Attribute.Private;
+    updatedBy: Attribute.Relation<'api::shoe.shoe', 'oneToOne', 'admin::user'> & Attribute.Private;
+  };
+}
+
+export interface ApiSliderSlider extends Schema.CollectionType {
+  collectionName: 'sliders';
+  info: {
+    singularName: 'slider';
+    pluralName: 'sliders';
+    displayName: 'Slider';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slider: Attribute.String;
+    images: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::slider.slider', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::slider.slider', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -822,12 +846,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::all-star.all-star': ApiAllStarAllStar;
-      'api::bag.bag': ApiBagBag;
-      'api::category.category': ApiCategoryCategory;
-      'api::product.product': ApiProductProduct;
-      'api::shoe.shoe': ApiShoeShoe;
-      'api::slider.slider': ApiSliderSlider;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -836,6 +854,13 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::all-star.all-star': ApiAllStarAllStar;
+      'api::article.article': ApiArticleArticle;
+      'api::bag.bag': ApiBagBag;
+      'api::category.category': ApiCategoryCategory;
+      'api::product.product': ApiProductProduct;
+      'api::shoe.shoe': ApiShoeShoe;
+      'api::slider.slider': ApiSliderSlider;
     }
   }
 }
