@@ -21,8 +21,8 @@ import Bag from './Pages/Bag'
 import Shoe from './Pages/Shoe'
 import Wear from './Pages/Wears'
 import SpecialSale from './Pages/SpecialSale'
-import WebLog from './Pages/Weblog'
 import AuthContext from './Utils/authContext'
+import CartPage from './Pages/Cart'
 export default function App() {
   const [token, setToken] = useState(null)
   const handleToken = (tr) => {
@@ -41,6 +41,7 @@ export default function App() {
             <Routes>
               <Route path='' element={<Home />} />
               <Route path='/about-us' element={<About />} />
+              <Route path='/cart' element={<CartPage />} />
               <Route path='/why-wears' element={<WhyWears />} />
               <Route path='/solutions' element={<Solutions />} />
               <Route path='/our-clients' element={<Clients />} />
@@ -51,7 +52,6 @@ export default function App() {
               <Route path='/shoe' element={<Shoe />} />
               <Route path='/wear' element={<Wear />} />
               <Route path='/special-sale' element={<SpecialSale />} />
-              <Route path='/web-log' element={<WebLog />} />
               <Route path='/request-demo' element={<Demo />} />
               <Route path='/product-details/:slug' element={<ProductDetails />} />
               <Route path='*' element={<NotFound />} />
