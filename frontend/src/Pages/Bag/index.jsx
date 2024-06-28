@@ -38,7 +38,7 @@ export default function Shoe() {
       }
       setPrice([minPrice, maxPrice]);
     })();
-  }, []);
+  }, [minPrice,maxPrice]);
 
   const handleChange = (event) => {
     setBrand(event.target.value);
@@ -113,10 +113,10 @@ export default function Shoe() {
         </Stack>
       </Stack>
       <Box padding='30px 0' display='flex' flexDirection='row' flexWrap='wrap' width='75%'>
-        <Stack direction='row' width='100%' flexWrap="wrap" justifyContent='space-between' gap={1}>
+        <Stack direction='row' width='100%' flexWrap="wrap" justifyContent='' gap={1.5}>
           {bags &&
             bags.map((e, index) => (
-              <Box key={index} width='24%'>
+              <Box sx={{ display: off && !e.attributes.DiscountPrice || e.attributes.Price < price[0] || e.attributes.Price > price[1] ? 'none' : 'block' }} key={index} width='24%'>
                 <Card
                   discount={e.attributes.Discount}
                   discountPrice={e.attributes.DiscountPrice}
